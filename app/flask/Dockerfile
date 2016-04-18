@@ -41,6 +41,9 @@ RUN python3.4 -m pip install uwsgi
 # Install app requirements
 RUN python3.4 -m pip install -r requirements.txt
 
+RUN python3.4 /src/objects/events.py
+RUN python3.4 /src/objects/places.py
+
 # supervisord.conf
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
