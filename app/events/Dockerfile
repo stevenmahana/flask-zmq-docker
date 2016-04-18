@@ -40,13 +40,11 @@ RUN python3.4 -m pip install -r requirements.txt
 
 RUN ls
 
-RUN python3.4 src/objects/events.py
-
 # supervisord.conf
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 # Expose port 8080 for uwsgi
-EXPOSE 8080
+EXPOSE 4444
 
 # run supervisor
 CMD ["/usr/bin/supervisord"]
