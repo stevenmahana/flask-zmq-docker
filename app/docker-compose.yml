@@ -22,3 +22,8 @@ node3:
     build: ./flask
     ports:
         - "8080"
+events:
+    restart: always
+    build: ./events
+    ports:
+        - "4444"
