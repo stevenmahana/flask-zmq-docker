@@ -24,8 +24,8 @@ ENV HOME /app
 WORKDIR /app
 
 # clone our main project repo
-RUN git clone https://github.com/sceene/test-flask-app.git /tmp/test-flask-app/
-RUN cp -R /tmp/test-flask-app/* /app
+RUN git clone https://github.com/sceene/events.git /tmp/events/
+RUN cp -R /tmp/events/* /app
 
 # Add requirements.txt
 ADD requirements.txt /app
