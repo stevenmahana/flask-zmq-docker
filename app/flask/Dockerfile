@@ -17,21 +17,21 @@ RUN apt-get install -y python3.4 python3.4-dev python3-setuptools python3-pip gi
     apt-get -y install supervisor wget
 
 # Create app directory
-ADD . /app
+ADD . /v1app
 
 # Set the default directory for our environment
-ENV HOME /app
-WORKDIR /app
+ENV HOME /v1app
+WORKDIR /v1app
 
 # clone our main project repo
 RUN git clone https://github.com/sceene/test-flask-app.git /tmp/test-flask-app/
-RUN cp -R /tmp/test-flask-app/* /app
+RUN cp -R /tmp/test-flask-app/* /v1app
 
 # Add requirements.txt
-ADD requirements.txt /app
+ADD requirements.txt /v1app
 
 # Add uwsgi.ini
-ADD uwsgi.ini /app
+ADD uwsgi.ini /v1app
 
 # Install uwsgi Python web server
 RUN python3.4 -m pip install uwsgi

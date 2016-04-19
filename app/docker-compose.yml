@@ -10,20 +10,26 @@ nginx:
 node1:
     restart: always
     build: ./flask
+    links:
+        - redis
     ports:
         - "8080"
 node2:
     restart: always
     build: ./flask
+    links:
+        - redis
     ports:
         - "8080"
 node3:
     restart: always
     build: ./flask
+    links:
+        - redis
     ports:
         - "8080"
-events:
+redis:
     restart: always
-    build: ./events
+    image: redis
     ports:
-        - "4444"
+        - "6379"
