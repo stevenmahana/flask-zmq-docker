@@ -37,7 +37,7 @@ events:
     links:
         - redis
     ports:
-        - "4444"
+        - "5555"
 redis:
     restart: always
     image: redis
