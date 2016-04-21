@@ -47,4 +47,4 @@ COPY server.py /tmp/server.py
 EXPOSE 5555
 
 # run supervisor
-#CMD ["python","/tmp/server.py"]
+CMD ["python","/tmp/server.py"]
