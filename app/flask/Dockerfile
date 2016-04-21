@@ -24,8 +24,8 @@ ENV HOME /v1app
 WORKDIR /v1app
 
 # clone our main project repo
-RUN git clone https://github.com/sceene/test-flask-app.git /tmp/test-flask-app/
-RUN cp -R /tmp/test-flask-app/* /v1app
+RUN git clone https://github.com/stevenmahana/zeromq-client.git /tmp/zeromq-client/
+RUN cp -R /zeromq-client/* /v1app
 
 # Add requirements.txt
 ADD requirements.txt /v1app

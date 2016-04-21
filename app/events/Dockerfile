@@ -24,8 +24,8 @@ ENV HOME /v1app
 WORKDIR /v1app
 
 # clone our main project repo
-RUN git clone https://github.com/sceene/events.git /tmp/events/
-RUN cp -R /tmp/events/* /v1app
+RUN git clone https://github.com/stevenmahana/events-test.git /tmp/events-test/
+RUN cp -R /tmp/events-test/* /v1app
 
 # Add requirements.txt
 ADD requirements.txt /v1app
@@ -41,11 +41,10 @@ RUN python3.4 -m pip install -r requirements.txt
 # supervisord.conf
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
-# Expose port 8080 for uwsgi
-EXPOSE 4444
+ADD server.py /tmp/server.py
+
+# Expose port
+EXPOSE 5555
 
 # run supervisor
-CMD ["/usr/bin/supervisord"]
-
-# use this in the absence of supervisor
-#ENTRYPOINT ["uwsgi", "--ini", "uwsgi.ini"]
+CMD ["python","/tmp/server.py"]
