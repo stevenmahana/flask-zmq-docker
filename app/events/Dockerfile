@@ -42,6 +42,8 @@ ADD uwsgi.ini /v1app
 # Install app requirements
 RUN python3.4 -m pip install -r requirements.txt
 
+RUN python3.4 -m pip install pyzmq --install-option="--zmq=bundled"
+
 # supervisord.conf
 #COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 #COPY server.py /tmp/server.py
