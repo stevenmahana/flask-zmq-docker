@@ -42,7 +42,7 @@ RUN python3.4 -m pip install -r requirements.txt
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 COPY server.py /tmp/server.py
-
+RUN ls
 # Expose port
 EXPOSE 5555
 
