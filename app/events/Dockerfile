@@ -12,7 +12,7 @@ RUN apt-get -y upgrade
 # Install Software
 RUN apt-get install -y python3.4 python3.4-dev python3-setuptools python3-pip git curl build-essential zlib1g-dev && \
     apt-get -y install uwsgi-plugin-python3 python-software-properties python-mysqldb libpcre3 libpcre3-dev && \
-    apt-get -y install supervisor wget nano
+    apt-get -y install supervisor wget nano libzmq3-dev
 
 # Create app directory
 ADD . /v1app
