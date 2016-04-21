@@ -34,12 +34,12 @@ ADD requirements.txt /v1app
 ADD uwsgi.ini /v1app
 
 # Install uwsgi Python web server
-RUN python3.4 -m pip install uwsgi
+#RUN python3.4 -m pip install uwsgi
 # Install app requirements
 RUN python3.4 -m pip install -r requirements.txt
 
 # supervisord.conf
-COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+#COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 #COPY server.py /tmp/server.py
 
 
