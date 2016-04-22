@@ -41,11 +41,11 @@ RUN python3.4 -m pip install pyzmq --install-option="--zmq=bundled"
 # Install app requirements
 RUN python3.4 -m pip install -r requirements.txt
 
-RUN mkdir -p libzmq
-RUN git clone https://github.com/zeromq/libzmq.git /tmp/libzmq/
-RUN cp -R /tmp/libzmq/* /v1app/libzmq
-RUN cd libzmq && ./autogen.sh && ./configure && make -j 4
-RUN cd libzmq && make check && make install && sudo ldconfig
+#RUN mkdir -p libzmq
+#RUN git clone https://github.com/zeromq/libzmq.git /tmp/libzmq/
+#RUN cp -R /tmp/libzmq/* /v1app/libzmq
+#RUN cd libzmq && ./autogen.sh && ./configure && make -j 4
+#RUN cd libzmq && make check && make install && sudo ldconfig
 
 # supervisord.conf
 #COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
@@ -56,5 +56,4 @@ EXPOSE 5555
 
 # run supervisor
 CMD ["python3.4","server.py"]
-#ENTRYPOINT ["uwsgi", "--ini", "uwsgi.ini"]
 #ENTRYPOINT ["uwsgi", "--ini", "uwsgi.ini"]
