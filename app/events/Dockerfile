@@ -27,6 +27,8 @@ WORKDIR /v1app
 RUN git clone https://github.com/stevenmahana/events-test.git /tmp/events-test/
 RUN cp -R /tmp/events-test/* /v1app
 
+RUN MKDIR libzmq
+
 # Add requirements.txt
 ADD requirements.txt /v1app
 
@@ -42,9 +44,9 @@ RUN python3.4 -m pip install pyzmq --install-option="--zmq=bundled"
 RUN python3.4 -m pip install -r requirements.txt
 
 RUN git clone https://github.com/zeromq/libzmq.git /tmp/libzmq/
-#RUN cd libzmq
-RUN /tmp/libzmq/autogen.sh && /tmp/libzmq/configure && make -j 4
-RUN make check && make install && sudo ldconfig
+RUN cp -R /tmp/libzmq/* /v1app/libzmq
+RUN cd libzmq && ./autogen.sh && ./configure && make -j 4
+RUN cd libzmq && make check && make install && sudo ldconfig
 
 # supervisord.conf
 #COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
