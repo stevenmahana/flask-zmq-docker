@@ -31,10 +31,10 @@ RUN cp -R /tmp/events-test/* /v1app
 ADD requirements.txt /v1app
 
 # Add uwsgi.ini
-ADD uwsgi.ini /v1app
+#ADD uwsgi.ini /v1app
 
 # Install uwsgi Python web server
-RUN python3.4 -m pip install uwsgi
+#RUN python3.4 -m pip install uwsgi
 
 RUN python3.4 -m pip install pyzmq --install-option="--zmq=bundled"
 
