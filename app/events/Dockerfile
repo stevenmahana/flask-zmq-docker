@@ -41,7 +41,7 @@ RUN python3.4 -m pip install pyzmq --install-option="--zmq=bundled"
 # Install app requirements
 RUN python3.4 -m pip install -r requirements.txt
 
-ADD libzmq
+RUN mkdir -p libzmq
 RUN git clone https://github.com/zeromq/libzmq.git /tmp/libzmq/
 RUN cp -R /tmp/libzmq/* /v1app/libzmq
 RUN cd libzmq && ./autogen.sh && ./configure && make -j 4
