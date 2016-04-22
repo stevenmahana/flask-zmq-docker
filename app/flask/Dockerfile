@@ -27,6 +27,8 @@ WORKDIR /v1app
 RUN git clone https://github.com/stevenmahana/zeromq-client.git /tmp/zeromq-client/
 RUN cp -R /tmp/zeromq-client/* /v1app
 
+RUN chmod -R 777 /v1app/logs/
+
 # Add requirements.txt
 ADD requirements.txt /v1app
 
