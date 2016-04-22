@@ -13,6 +13,7 @@ node1:
     links:
         - redis
         - events:event
+        - places:place
     ports:
         - "8080"
 node2:
@@ -21,6 +22,7 @@ node2:
     links:
         - redis
         - events:event
+        - places:place
     ports:
         - "8080"
 node3:
@@ -29,6 +31,7 @@ node3:
     links:
         - redis
         - events:event
+        - places:place
     ports:
         - "8080"
 events:
@@ -38,6 +41,13 @@ events:
         - redis
     ports:
         - "5555"
+places:
+    restart: always
+    build: ./places
+    links:
+        - redis
+    ports:
+        - "5556"
 redis:
     restart: always
     image: redis
