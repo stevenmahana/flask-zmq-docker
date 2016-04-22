@@ -12,7 +12,7 @@ node1:
     build: ./flask
     links:
         - redis
-        - events
+        - events:event
     ports:
         - "8080"
 node2:
@@ -20,7 +20,7 @@ node2:
     build: ./flask
     links:
         - redis
-        - events
+        - events:event
     ports:
         - "8080"
 node3:
@@ -28,7 +28,7 @@ node3:
     build: ./flask
     links:
         - redis
-        - events
+        - events:event
     ports:
         - "8080"
 events:
