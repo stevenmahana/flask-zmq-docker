@@ -24,7 +24,7 @@ ENV HOME /v1app
 WORKDIR /v1app
 
 # clone our main project repo
-RUN git clone https://github.com/stevenmahana/events-test.git /tmp/places-test/
+RUN git clone https://github.com/stevenmahana/places-test.git /tmp/places-test/
 RUN cp -R /tmp/places-test/* /v1app
 
 # Add requirements.txt
