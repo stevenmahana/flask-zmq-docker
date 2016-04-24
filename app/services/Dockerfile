@@ -23,8 +23,8 @@ ENV HOME /v1app
 WORKDIR /v1app
 
 # clone our main project repo
-RUN git clone https://github.com/stevenmahana/messaging-test.git /tmp/messaging-test/
-RUN cp -R /tmp/messaging-test/* /v1app
+RUN git clone https://github.com/stevenmahana/services-test.git /tmp/services-test/
+RUN cp -R /tmp/services-test/* /v1app
 
 # Install zeromq
 RUN python3.4 -m pip install pyzmq --install-option="--zmq=bundled"
@@ -36,7 +36,7 @@ ADD requirements.txt /v1app
 RUN python3.4 -m pip install -r requirements.txt
 
 # Expose port
-EXPOSE 5557
+EXPOSE 5569
 
 # run supervisor
 CMD ["python3.4","server.py"]

@@ -42,6 +42,7 @@ events:
     build: ./events
     links:
         - redis
+        - services:service
     ports:
         - "5555"
 places:
@@ -49,6 +50,7 @@ places:
     build: ./places
     links:
         - redis
+        - services:service
     ports:
         - "5556"
 messaging:
@@ -56,8 +58,16 @@ messaging:
     build: ./messaging
     links:
         - redis
+        - services:service
     ports:
         - "5557"
+services:
+    restart: always
+    build: ./services
+    links:
+        - redis
+    ports:
+        - "5569"
 redis:
     restart: always
     image: redis
