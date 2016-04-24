@@ -1,5 +1,6 @@
 #FROM ubuntu:14.04
-FROM dockerimages/ubuntu-core:14.04
+#FROM dockerimages/ubuntu-core:14.04
+FROM gliderlabs/alpine
 
 # File Author / Maintainer
 MAINTAINER Steven Mahana
@@ -10,9 +11,9 @@ RUN apt-get update
 RUN apt-get -y upgrade
 
 # Install Software
-RUN apt-get install -y --no-install-recommends python3.4 python3.4-dev python3-setuptools python3-pip git curl && \
+RUN apt-get install -y python3.4 python3.4-dev python3-setuptools python3-pip git curl zlib1g-dev && \
     apt-get install -y uwsgi-plugin-python3 python-software-properties python-mysqldb libpcre3 libpcre3-dev && \
-    apt-get install -y libssl-dev libxslt-dev libxml2-dev libwebp-dev tcl8.6-dev tk8.6-dev python-tk wget zlib1g-dev && \
+    apt-get install -y libssl-dev libxslt-dev libxml2-dev libwebp-dev tcl8.6-dev tk8.6-dev python-tk wget  && \
     apt-get install -y libtiff5-dev libjpeg8-dev zlib1g-dev libfreetype6-dev liblcms2-dev python3-lxml build-essential
 
 # Create app directory
