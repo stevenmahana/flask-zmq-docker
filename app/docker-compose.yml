@@ -59,13 +59,17 @@ messaging:
     links:
         - redis
         - services:service
+        - models:model
     ports:
         - "5557"
+models:
+    restart: always
+    build: ./models
+    ports:
+        - "5570"
 services:
     restart: always
     build: ./services
-    links:
-        - redis
     ports:
         - "5569"
 redis:

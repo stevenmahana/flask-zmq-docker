@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 # ~/.bash_aliases
 
 # Kill all running containers.
