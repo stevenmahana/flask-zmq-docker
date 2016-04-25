@@ -18,5 +18,5 @@ docker rmi -f app_messaging
 # Run cleanup
 bash cleanup.sh
 
-# rebuild containers
+# rebuild containers and message image
 docker-compose up
