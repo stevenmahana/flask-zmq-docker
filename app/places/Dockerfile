@@ -16,7 +16,6 @@ RUN apt-get update && apt-get -y upgrade && apt-get -y install \
     python-software-properties \
     git \
     curl \
-    clean \
     && rm -rf /var/lib/apt/lists/*
 
 # Create app directory
