@@ -1,4 +1,3 @@
-#FROM ubuntu:14.04
 FROM dockerimages/ubuntu-core:14.04
 
 # File Author / Maintainer
@@ -6,14 +5,19 @@ MAINTAINER Steven Mahana
 
 # Update OS
 RUN sed -i 's/# \(.*multiverse$\)/\1/g' /etc/apt/sources.list
-RUN apt-get update
-RUN apt-get -y upgrade
 
 # Install Software
-RUN apt-get install -y python3.4 python3.4-dev python3-setuptools python3-pip git curl build-essential zlib1g-dev && \
-    apt-get -y install uwsgi-plugin-python3 python-software-properties python-mysqldb libpcre3 libpcre3-dev && \
-    apt-get install -y libssl-dev libxslt-dev libxml2-dev libwebp-dev tcl8.6-dev tk8.6-dev python-tk wget && \
-    apt-get -y install libtiff5-dev libjpeg8-dev zlib1g-dev libfreetype6-dev liblcms2-dev python3-lxml
+RUN apt-get update && apt-get -y upgrade && apt-get -y install \
+    python3.4 \
+    python3.4-dev \
+    python3-setuptools \
+    python3-pip \
+    build-essential \
+    python-software-properties \
+    git \
+    curl \
+    clean \
+    && rm -rf /var/lib/apt/lists/*
 
 # Create app directory
 ADD . /v1app
