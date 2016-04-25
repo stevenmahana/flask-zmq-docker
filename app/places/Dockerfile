@@ -30,10 +30,11 @@ WORKDIR /v1app
 RUN git clone https://github.com/stevenmahana/places-test.git /tmp/places-test/
 RUN cp -R /tmp/places-test/* /v1app
 
+# Install zeromq
+RUN python3.4 -m pip install pyzmq --install-option="--zmq=bundled"
+
 # Add requirements.txt
 ADD requirements.txt /v1app
-
-RUN python3.4 -m pip install pyzmq --install-option="--zmq=bundled"
 
 # Install app requirements
 RUN python3.4 -m pip install -r requirements.txt

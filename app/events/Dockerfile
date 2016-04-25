@@ -30,11 +30,11 @@ WORKDIR /v1app
 RUN git clone https://github.com/stevenmahana/events-test.git /tmp/events-test/
 RUN cp -R /tmp/events-test/* /v1app
 
+# Install zeromq
+RUN python3.4 -m pip install pyzmq --install-option="--zmq=bundled"
+
 # Add requirements.txt
 ADD requirements.txt /v1app
-
-# Build zero mq
-RUN python3.4 -m pip install pyzmq --install-option="--zmq=bundled"
 
 # Install app requirements
 RUN python3.4 -m pip install -r requirements.txt

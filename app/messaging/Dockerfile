@@ -39,11 +39,6 @@ ADD requirements.txt /v1app
 # Install app requirements
 RUN python3.4 -m pip install -r requirements.txt
 
-## Clean up
-#RUN apt-get remove -y python3-pip curl git wget
-#RUN rm -rf /var/lib/apt/lists/*
-#RUN apt-get clean
-
 # Expose port
 EXPOSE 5557
 
