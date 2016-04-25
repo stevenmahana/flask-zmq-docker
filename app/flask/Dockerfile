@@ -16,6 +16,7 @@ RUN apt-get update && apt-get -y upgrade && apt-get -y install \
     python-software-properties \
     git \
     curl \
+    supervisor \
     && rm -rf /var/lib/apt/lists/*
 
 # Create app directory
@@ -50,6 +51,3 @@ EXPOSE 8080
 
 # run supervisor
 CMD ["/usr/bin/supervisord"]
-
-# use this in the absence of supervisor
-#ENTRYPOINT ["uwsgi", "--ini", "uwsgi.ini"]
