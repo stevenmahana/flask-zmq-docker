@@ -1,6 +1,6 @@
 #FROM ubuntu:14.04
-#FROM dockerimages/ubuntu-core:14.04
-FROM phusion/baseimage
+FROM dockerimages/ubuntu-core:14.04
+#FROM phusion/baseimage
 
 # File Author / Maintainer
 MAINTAINER Steven Mahana
